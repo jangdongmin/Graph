@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Graph" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R69-nF-Tfu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h00-1H-9qN" customClass="GraphView" customModule="Graph" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="0.0" width="394" height="400"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="ogX-Fk-ZTI"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="XEJ-6X-yiq" customClass="ContainerTableView" customModule="Graph" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="400" width="414" height="452"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContainerTableViewCell" id="xfP-Yo-OQA" customClass="ContainerTableViewCell" customModule="Graph" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xfP-Yo-OQA" id="Kbc-62-PbR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uai-r9-L5F" customClass="CustomTextField" customModule="Graph" customModuleProvider="target">
+                                                            <rect key="frame" x="10" y="0.0" width="207" height="140"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        </textField>
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="40" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="F86-Sg-6KA" customClass="ContentTableView" customModule="Graph" customModuleProvider="target">
+                                                            <rect key="frame" x="207" y="0.0" width="207" height="140"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <prototypes>
+                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ContentTableViewCell" id="Nqm-de-e8g" customClass="ContentTableViewCell" customModule="Graph" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="28" width="207" height="40"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nqm-de-e8g" id="beu-Du-cKj">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="숫자 데이터" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-Po-2We" customClass="CustomTextField" customModule="Graph" customModuleProvider="target">
+                                                                                <rect key="frame" x="20" y="0.0" width="177" height="40"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="bottom" secondItem="dsn-Po-2We" secondAttribute="bottom" id="3D7-TQ-QdI"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="dsn-Po-2We" secondAttribute="trailing" constant="10" id="a3R-5Y-h2m"/>
+                                                                            <constraint firstItem="dsn-Po-2We" firstAttribute="top" secondItem="beu-Du-cKj" secondAttribute="top" id="on2-uz-bRw"/>
+                                                                            <constraint firstItem="dsn-Po-2We" firstAttribute="leading" secondItem="beu-Du-cKj" secondAttribute="leading" constant="20" id="sb6-om-TBV"/>
+                                                                        </constraints>
+                                                                    </tableViewCellContentView>
+                                                                    <connections>
+                                                                        <outlet property="numberTextField" destination="dsn-Po-2We" id="EXW-ed-jtt"/>
+                                                                    </connections>
+                                                                </tableViewCell>
+                                                            </prototypes>
+                                                        </tableView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="F86-Sg-6KA" secondAttribute="trailing" id="2oc-vb-0QW"/>
+                                                        <constraint firstItem="Uai-r9-L5F" firstAttribute="leading" secondItem="Kbc-62-PbR" secondAttribute="leading" constant="10" id="7zB-tH-UQN"/>
+                                                        <constraint firstItem="F86-Sg-6KA" firstAttribute="centerY" secondItem="Kbc-62-PbR" secondAttribute="centerY" id="8A5-Fo-os4"/>
+                                                        <constraint firstItem="Uai-r9-L5F" firstAttribute="top" secondItem="Kbc-62-PbR" secondAttribute="top" id="C1N-ad-8lO"/>
+                                                        <constraint firstItem="F86-Sg-6KA" firstAttribute="width" secondItem="Kbc-62-PbR" secondAttribute="width" multiplier="1:2" id="OJv-BQ-6Ns"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Uai-r9-L5F" secondAttribute="bottom" id="Zj7-aZ-jjR"/>
+                                                        <constraint firstItem="Uai-r9-L5F" firstAttribute="trailing" secondItem="F86-Sg-6KA" secondAttribute="leading" constant="10" id="eLC-eO-gZt"/>
+                                                        <constraint firstItem="F86-Sg-6KA" firstAttribute="height" secondItem="Kbc-62-PbR" secondAttribute="height" id="i3l-zU-Lfe"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="contentTableView" destination="F86-Sg-6KA" id="hlR-Zg-PZW"/>
+                                                    <outlet property="titleTextField" destination="Uai-r9-L5F" id="fwK-NW-LJu"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="h00-1H-9qN" firstAttribute="leading" secondItem="R69-nF-Tfu" secondAttribute="leading" constant="10" id="Evv-cz-K2s"/>
+                                    <constraint firstItem="XEJ-6X-yiq" firstAttribute="centerX" secondItem="R69-nF-Tfu" secondAttribute="centerX" id="LtK-Ga-vQs"/>
+                                    <constraint firstAttribute="trailing" secondItem="h00-1H-9qN" secondAttribute="trailing" constant="10" id="OMc-XU-VTX"/>
+                                    <constraint firstItem="h00-1H-9qN" firstAttribute="top" secondItem="R69-nF-Tfu" secondAttribute="top" id="WX8-uU-0Ug"/>
+                                    <constraint firstItem="h00-1H-9qN" firstAttribute="centerX" secondItem="R69-nF-Tfu" secondAttribute="centerX" id="YDK-Ya-X28"/>
+                                    <constraint firstItem="XEJ-6X-yiq" firstAttribute="width" secondItem="R69-nF-Tfu" secondAttribute="width" id="e44-xR-arX"/>
+                                    <constraint firstItem="XEJ-6X-yiq" firstAttribute="top" secondItem="h00-1H-9qN" secondAttribute="bottom" id="fdd-XQ-Re5"/>
+                                    <constraint firstAttribute="bottom" secondItem="XEJ-6X-yiq" secondAttribute="bottom" id="s2P-O7-Ctw"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMe-m1-goK">
+                                <rect key="frame" x="175" y="758" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="RXJ-nf-k1w"/>
+                                    <constraint firstAttribute="height" constant="64" id="Sr7-nA-tkm"/>
+                                </constraints>
+                                <state key="normal" image="plus.png"/>
+                                <connections>
+                                    <action selector="addButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vFB-g7-aoB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HMe-m1-goK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JdQ-Hd-Idh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R69-nF-Tfu" secondAttribute="trailing" id="YGe-C5-9sa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HMe-m1-goK" secondAttribute="bottom" constant="40" id="kMO-bG-2Kr"/>
+                            <constraint firstItem="R69-nF-Tfu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pxe-o9-aYn"/>
+                            <constraint firstItem="R69-nF-Tfu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="trk-hu-lwL"/>
+                            <constraint firstAttribute="bottom" secondItem="R69-nF-Tfu" secondAttribute="bottom" id="vrj-5g-lEi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerTableView" destination="XEJ-6X-yiq" id="Srn-c4-E4g"/>
+                        <outlet property="graphView" destination="h00-1H-9qN" id="iqS-5t-9C4"/>
+                        <outlet property="parentView" destination="R69-nF-Tfu" id="ANW-2W-xYr"/>
+                        <outlet property="plusButton" destination="HMe-m1-goK" id="ckt-9i-wXI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="81"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="plus.png" width="64" height="64"/>
+    </resources>
+</document>
