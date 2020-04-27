@@ -1,6 +1,8 @@
 # Graph
 
     //
+    // Graph View
+    //
     // GraphViewModel -> setDefaultData()에 기본 데이터를 설정해놨습니다. 
     // graphView -> addLayer //그래프 추가
     // graphView -> addNode(layerIndex: 0, inputValue: 100) //노드 추가
