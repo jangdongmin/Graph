@@ -52,8 +52,10 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
     func bindViewModel() {
         containerTableView.bindViewModel(viewModel: viewModel)
         
-        self.viewModel.graphDataArrObserver.bindAndFire { graphDataArr in
-            DispatchQueue.main.async {
+        self.viewModel.graphDataArrObserver.bindAndFire { [weak self] graphDataArr in
+            guard let `self` = self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
                 //기본 데이터 세팅. (없어도 됩니다.)
                 //GraphViewModel -> setDefaultData() 에 기본 데이터 세팅.
                 self.graphView.removeAllData()
@@ -72,22 +74,28 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
             }
         }
         
-        self.viewModel.nodeDataObserver.bind { (nodeValue) in
-            DispatchQueue.main.async {
+        self.viewModel.nodeDataObserver.bind { [weak self] (nodeValue) in
+            guard let `self` = self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
                 //그래프 node 값이 변경된다면, 값을 수정합니다.
                 self.graphView.nodeValueChange(layerIndex: nodeValue.0, nodeIndex: nodeValue.1, inputValue: CGFloat(nodeValue.2))
             }
         }
         
-        self.viewModel.layerTitleObserver.bind { (layerInfoTuple) in
-            DispatchQueue.main.async {
+        self.viewModel.layerTitleObserver.bind { [weak self] (layerInfoTuple) in
+            guard let `self` = self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
                 //그래프 title 값이 변경된다면, 값을 수정합니다.
                 self.graphView.layerTitleChagne(layerIndex: layerInfoTuple.0, title: layerInfoTuple.1)
             }
         }
 
-        self.viewModel.graphDataObserver.bind { (graphData) in
-            DispatchQueue.main.async {
+        self.viewModel.graphDataObserver.bind { [weak self] (graphData) in
+            guard let `self` = self else { return }
+            DispatchQueue.main.async { [weak self] in
+                guard let `self` = self else { return }
                 //그래프 layer를 추가합니다.
                 self.graphView.addLayer(layer: Layer(_type: graphData.title, _color: .random, lineWidth: 2, node1: CGFloat(graphData.dataArr[0]), node2: CGFloat(graphData.dataArr[1]),   node3:  CGFloat(graphData.dataArr[2])))
                 
@@ -103,7 +111,8 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
     }
      
     override func viewDidLayoutSubviews() {
-        DispatchQueue.main.async() {
+        DispatchQueue.main.async() { [weak self] in
+            guard let `self` = self else { return }
             if self.graphView.viewRect != self.graphView.frame {
                 //화면 회전, 사이즈 변경시 그래프 다시 그리기
                 self.graphView.ReDraw(rect: self.graphView.frame)
@@ -140,7 +149,9 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
             
             if limit < self.selectPosY {
                 let move = self.selectPosY - limit
-                UIView.animate(withDuration: 0.3) {
+                UIView.animate(withDuration: 0.3) { [weak self] in
+                    guard let `self` = self else { return }
+                    
                     self.parentView.frame.origin.y = self.parentViewTopMargin
                     self.parentView.frame.origin.y -= move
                 }
@@ -150,7 +161,9 @@ class MainViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc func keyboardWillHide(notification: Notification) {
         if self.parentView.frame.origin.y != parentViewTopMargin {
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.3) { [weak self] in
+                guard let `self` = self else { return }
+                
                 self.parentView.frame.origin.y = self.parentViewTopMargin
             }
         }
